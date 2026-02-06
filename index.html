@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Real vs AI Face Checker</title>
+  <link rel="stylesheet" href="style.css"/>
+
+  <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@latest"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@teachablemachine/image@latest"></script>
+</head>
+<body>
+  <div class="card">
+    <h1>Real vs AI Face Checker</h1>
+    <p class="sub">Upload a face image to get a prediction.</p>
+
+    <input id="upload" type="file" accept="image/*" />
+    <div id="status" class="status">Loading model…</div>
+
+    <div class="preview-wrap">
+      <img id="preview" alt="Preview" />
+    </div>
+
+    <div id="results" class="results"></div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>

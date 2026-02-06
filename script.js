@@ -11,9 +11,20 @@ const resultsEl = document.getElementById("results");
 
 async function loadModel() {
   statusEl.textContent = "Loading model…";
-  model = await tmImage.load(modelURL, metadataURL);
-  statusEl.textContent = "Model loaded. Upload an image.";
+
+  try {
+    console.log("Trying to load:", modelURL, metadataURL);
+
+    model = await tmImage.load(modelURL, metadataURL);
+
+    statusEl.textContent = "Model loaded. Upload an image.";
+    console.log("Model loaded OK");
+  } catch (err) {
+    console.error("Model load failed:", err);
+    statusEl.textContent = "Model failed to load. Open console for error.";
+  }
 }
+
 
 function pct(n) {
   return Math.round(n * 100);

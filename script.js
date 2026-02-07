@@ -11,20 +11,14 @@ const resultsEl = document.getElementById("results");
 
 async function loadModel() {
   statusEl.textContent = "Loading model…";
-
   try {
-    console.log("Trying to load:", modelURL, metadataURL);
-
     model = await tmImage.load(modelURL, metadataURL);
-
     statusEl.textContent = "Model loaded. Upload an image.";
-    console.log("Model loaded OK");
   } catch (err) {
     console.error("Model load failed:", err);
     statusEl.textContent = "Model failed to load. Open console for error.";
   }
 }
-
 
 function pct(n) {
   return Math.round(n * 100);
@@ -41,13 +35,13 @@ function renderRow(label, probability) {
 }
 
 function buildTrustReport(predictions) {
-  // Find the AI class probability (tries common names)
-  const ai = predictions.find(p =>
-    p.className.toLowerCase().includes("ai") ||
-    p.className.toLowerCase().includes("fake")
-  );
+  // Find AI-ish class (works even if your class name is "AI Face", "Fake", etc.)
+  const aiItem = predictions.find(p => {
+    const name = p.className.toLowerCase();
+    return name.includes("ai") || name.includes("fake");
+  });
 
-  const aiProb = ai ? ai.probability : 0;
+  const aiProb = aiItem ? aiItem.probability : 0;
   const aiPct = pct(aiProb);
 
   let level = "LOW";
@@ -62,8 +56,8 @@ function buildTrustReport(predictions) {
     msg = "High chance this image is AI-generated. Use extra caution.";
     tips = [
       "Reverse image search the profile picture.",
-      "Ask for a live photo/verification if it’s a person you don’t know.",
-      "Watch for too-perfect skin, odd ears, or weird hair edges."
+      "Ask for a live photo/verification if it’s someone you don’t know.",
+      "Watch for odd ears, weird hair edges, or overly smooth skin."
     ];
   } else if (aiProb >= 0.40) {
     level = "MEDIUM";
@@ -71,7 +65,7 @@ function buildTrustReport(predictions) {
     tips = [
       "Zoom in on eyes, teeth, hairline, and ears for distortions.",
       "Look for mismatched lighting or blurry edges.",
-      "Cross-check the account with other info (friends, posts, history)."
+      "Cross-check the account with other info (posts/history)."
     ];
   }
 
@@ -81,12 +75,9 @@ function buildTrustReport(predictions) {
     <p><strong>AI-Likelihood:</strong> ${level}</p>
     <p><strong>AI Probability:</strong> ${aiPct}%</p>
     <p>${msg}</p>
-    <ul>
-      ${tips.map(t => `<li>${t}</li>`).join("")}
-    </ul>
+    <ul>${tips.map(t => `<li>${t}</li>`).join("")}</ul>
   `;
 }
-
 
 uploadEl.addEventListener("change", (e) => {
   if (!model) return;
@@ -100,18 +91,22 @@ uploadEl.addEventListener("change", (e) => {
   statusEl.textContent = "Analyzing…";
 
   previewEl.onload = async () => {
-    const predictions = await model.predict(previewEl);
+    try {
+      const predictions = await model.predict(previewEl);
 
-    // sort so the top result is first
-    predictions.sort((a, b) => b.probability - a.probability);
+      // Sort high → low
+      predictions.sort((a, b) => b.probability - a.probability);
 
-    resultsEl.innerHTML =
-      renderRow(predictions[0].className, predictions[0].probability) +
-      renderRow(predictions[1].className, predictions[1].probability) +
-      buildTrustReport(predictions);
+      resultsEl.innerHTML =
+        renderRow(predictions[0].className, predictions[0].probability) +
+        renderRow(predictions[1].className, predictions[1].probability) +
+        buildTrustReport(predictions);
 
-    statusEl.textContent = "Done.";
-";
+      statusEl.textContent = "Done.";
+    } catch (err) {
+      console.error("Prediction failed:", err);
+      statusEl.textContent = "Prediction failed. Open console for error.";
+    }
   };
 });
 

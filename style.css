@@ -91,3 +91,31 @@ input[type="file"]::-webkit-file-upload-button {
   cursor: pointer;
   margin-right: 10px;
 }
+
+hr {
+  border: none;
+  height: 1px;
+  background: rgba(0,0,0,0.08);
+  margin: 18px 0;
+}
+
+h1 {
+  margin: 0 0 6px;
+  font-size: 28px;
+  letter-spacing: -0.5px;
+}
+
+h2 {
+  margin: 10px 0 8px;
+  font-size: 18px;
+}
+
+.results ul {
+  margin: 8px 0 0;
+  padding-left: 18px;
+}
+
+.results p {
+  margin: 6px 0;
+}
+

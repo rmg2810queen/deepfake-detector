@@ -72,3 +72,22 @@ body {
 .label {
   font-weight: bold;
 }
+
+input[type="file"] {
+  width: 100%;
+  padding: 12px;
+  border-radius: 12px;
+  border: 1px solid rgba(0,0,0,0.12);
+  background: white;
+  cursor: pointer;
+}
+
+input[type="file"]::-webkit-file-upload-button {
+  border: none;
+  background: #111827;
+  color: white;
+  padding: 10px 14px;
+  border-radius: 10px;
+  cursor: pointer;
+  margin-right: 10px;
+}

@@ -76,23 +76,23 @@
 
   <!-- Slide 2 -->
   <div class="slide">
-    <h2>The Problem</h2>
+    <h2>The Problem: Cybersecurity + AI</h2>
     <ul>
       <li>AI can generate highly realistic fake human faces.</li>
       <li>These images are often used for impersonation and fake profiles.</li>
-      <li>Deepfake identities can manipulate and mislead people online.</li>
+      <li>Deepfake identities can mislead people, causing deception online.</li>
       <li>Most users cannot easily tell if a face is real or AI-generated.</li>
     </ul>
   </div>
 
   <!-- Slide 3 -->
   <div class="slide">
-    <h2>My Solution</h2>
+    <h2>My Solution: Deepfake Detector</h2>
     <ul>
       <li>Trained an image classification model using Teachable Machine.</li>
       <li>Detects real human faces vs AI-generated faces.</li>
       <li>Deployed as a live web application using TensorFlow.js.</li>
-      <li>Generates probability scores and a Trust Report with safety tips.</li>
+      <li>Generates probability scores and a Trust Report with user friendly safety tips.</li>
     </ul>
   </div>
 
@@ -101,7 +101,7 @@
     <h2>How It Protects Digital Identity</h2>
     <ul>
       <li>Helps users detect fake profile photos before trusting accounts.</li>
-      <li>Reduces impersonation and scam risks.</li>
+      <li>Reduces risk of impersonation and scams.</li>
       <li>Encourages critical evaluation of online identities.</li>
       <li>Provides clear safety guidance based on AI probability.</li>
     </ul>
@@ -111,21 +111,22 @@
   <div class="slide">
     <h2>How It Works</h2>
     <ul>
-      <li>Trained an AI image classification model using real and AI-generated faces.</li>
+      <li>Trained an AI image classification model using images of real and AI-generated faces.</li>
       <li>The model learns visual patterns and inconsistencies.</li>
-      <li>Runs directly in the browser — no images are stored.</li>
-      <li>Displays probability results and converts them into a Trust Report.</li>
+      <li>The model runs directly in the browser, so no images are stored ensuring privacy of the user.</li>
+      <li>Displays probability results and translates them into a Trust Report.</li>
     </ul>
   </div>
 
   <!-- Slide 6 -->
   <div class="slide">
-    <h2>Limitations & Future Improvements</h2>
+    <h2>Limitations & Improvements</h2>
     <ul>
       <li>The model is not 100% accurate.</li>
       <li>Some real images may appear AI-generated.</li>
-      <li>Currently only works for still images.</li>
+      <li>Currently only works for still images(no video).</li>
       <li>Future versions could support video deepfake detection.</li>
+      <li>Train on a larger and more diverse dataset.</li>
     </ul>
 
     <p class="demo-link">

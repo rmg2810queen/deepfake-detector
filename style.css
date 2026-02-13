@@ -3,13 +3,10 @@ body {
   margin: 0;
   padding: 24px;
   min-height: 100vh;
-  background: linear-gradient(
-    135deg,
-    #eef2ff 0%,
-    #f8fafc 50%,
-    #ffffff 100%
-  );
+  background: linear-gradient(135deg, #eef2ff 0%, #f8fafc 50%, #ffffff 100%);
+  background-attachment: fixed;
 }
+
 
 
 .card {

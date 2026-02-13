@@ -8,7 +8,7 @@ html, body {
   height: 100%;
   margin: 0;
   font-family: 'Inter', Arial, sans-serif;
-  background: linear-gradient(135deg, #a5b4fc 0%, #dbeafe 45%, #ffffff 100%);
+  background: linear-gradient(135deg, #99f6e4 0%, #5eead4 40%, #ffffff 100%);
 }
 
 /* CARD CONTAINER */
@@ -55,7 +55,7 @@ input[type="file"] {
 }
 
 input[type="file"]::-webkit-file-upload-button {
-  background: #111827;
+  background: #0f766e;
   color: white;
   border: none;
   padding: 10px 16px;

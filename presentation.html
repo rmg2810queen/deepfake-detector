@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Deepfake Detector – Project Overview</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: linear-gradient(135deg, #5eead4 0%, #14b8a6 40%, #ffffff 100%);
+      padding: 40px 20px;
+    }
+
+    .container {
+      max-width: 800px;
+      margin: auto;
+    }
+
+    .slide {
+      background: white;
+      padding: 30px;
+      border-radius: 18px;
+      box-shadow: 0 20px 40px rgba(0,0,0,0.08);
+      margin-bottom: 40px;
+    }
+
+    h1, h2 {
+      margin-top: 0;
+    }
+
+    ul {
+      padding-left: 20px;
+      line-height: 1.6;
+    }
+
+    .demo-link {
+      margin-top: 20px;
+      font-weight: bold;
+    }
+
+    a {
+      color: #0f766e;
+      text-decoration: none;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+
+    .nav {
+      text-align: center;
+      margin-bottom: 30px;
+    }
+
+    .nav a {
+      margin: 0 10px;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+
+<div class="container">
+
+  <div class="nav">
+    <a href="index.html">← Back to Detector</a>
+  </div>
+
+  <!-- Slide 1 -->
+  <div class="slide">
+    <h1>Deepfake Detector</h1>
+    <p><strong>Using AI to Protect Digital Identity Online</strong></p>
+  </div>
+
+  <!-- Slide 2 -->
+  <div class="slide">
+    <h2>The Problem</h2>
+    <ul>
+      <li>AI can generate highly realistic fake human faces.</li>
+      <li>These images are often used for impersonation and fake profiles.</li>
+      <li>Deepfake identities can manipulate and mislead people online.</li>
+      <li>Most users cannot easily tell if a face is real or AI-generated.</li>
+    </ul>
+  </div>
+
+  <!-- Slide 3 -->
+  <div class="slide">
+    <h2>My Solution</h2>
+    <ul>
+      <li>Trained an image classification model using Teachable Machine.</li>
+      <li>Detects real human faces vs AI-generated faces.</li>
+      <li>Deployed as a live web application using TensorFlow.js.</li>
+      <li>Generates probability scores and a Trust Report with safety tips.</li>
+    </ul>
+  </div>
+
+  <!-- Slide 4 -->
+  <div class="slide">
+    <h2>How It Protects Digital Identity</h2>
+    <ul>
+      <li>Helps users detect fake profile photos before trusting accounts.</li>
+      <li>Reduces impersonation and scam risks.</li>
+      <li>Encourages critical evaluation of online identities.</li>
+      <li>Provides clear safety guidance based on AI probability.</li>
+    </ul>
+  </div>
+
+  <!-- Slide 5 -->
+  <div class="slide">
+    <h2>How It Works</h2>
+    <ul>
+      <li>Trained an AI image classification model using real and AI-generated faces.</li>
+      <li>The model learns visual patterns and inconsistencies.</li>
+      <li>Runs directly in the browser — no images are stored.</li>
+      <li>Displays probability results and converts them into a Trust Report.</li>
+    </ul>
+  </div>
+
+  <!-- Slide 6 -->
+  <div class="slide">
+    <h2>Limitations & Future Improvements</h2>
+    <ul>
+      <li>The model is not 100% accurate.</li>
+      <li>Some real images may appear AI-generated.</li>
+      <li>Currently only works for still images.</li>
+      <li>Future versions could support video deepfake detection.</li>
+    </ul>
+
+    <p class="demo-link">
+      Live Demo: <a href="index.html">Open Deepfake Detector</a>
+    </p>
+  </div>
+
+</div>
+
+</body>
+</html>
